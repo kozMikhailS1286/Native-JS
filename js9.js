@@ -1,4 +1,4 @@
-// Первое занятие среды: 2.02.23 г.
+// Первое занятие среды: 2.03.23 г.
 
 // global lexical environmemt
 //{car: 'bmw', startCarEnging: Function, finishCarEnging: Function}
