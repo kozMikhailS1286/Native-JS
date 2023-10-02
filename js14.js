@@ -101,42 +101,106 @@
 
 // 4:
 
+// class Car {
+//     #brand // скрывает свойство brand
+//     #speed // скрывает свойство brand
+//     constructor(brand, speed) {
+//         this.#brand = brand
+//         this.#speed = speed
+//     }
+//
+//     startEngine() {
+//         console.log(`Start ${this.brand}`) // обычную ф-ию наследуюь только кто использует.
+//     }
+//
+//     getBrand() {
+//         return this.#brand.toUpperCase()
+//     }
+//
+//     setBrand(newBrand) {
+//         if (newBrand.length < 4) throw new Error("Short name")
+//         this.#brand = newBrand
+//     }
+//
+//     get brand() {
+//         return this.#brand
+//     }
+//
+//     set brand(newBrand) {
+//         this.#brand = newBrand
+//     }
+//     get speed() {
+//         return this.#speed
+//     }
+//     set speed(newSpeed) {
+//         this.#speed = newSpeed
+//         if (newSpeed < 101) throw new Error("Slow speed")
+//     }
+// }
+//
+// const bmv = new Car('Bmv', 200);
+// const kia = new Car('Kia', 220);
+//
+// // console.log(bmv)
+// // console.log(kia)
+//
+// // bmv.setBrand("Mazda") // будет ожидаемая ошибка если длина меньше 4.
+//
+// // console.log(bmv.getBrand())
+// // console.log(kia.getBrand())
+//
+// console.log(bmv.brand)
+//
+// bmv.brand = "ToYoTa"; // Если после brand стоит равно, значит set. Если не стоит равно, значит get.
+// console.log(bmv.brand)
+//
+//
+// console.log(kia.speed);
+// kia.speed = 101;
+// console.log(kia.speed);
+
+
+
+
+
+// 5:
+
 class Car {
     #brand // скрывает свойство brand
     constructor(brand, speed) {
         this.#brand = brand
         this.speed = speed
     }
+
     startEngine() {
         console.log(`Start ${this.brand}`) // обычную ф-ию наследуюь только кто использует.
     }
+
     getBrand() {
         return this.#brand.toUpperCase()
     }
+
     setBrand(newBrand) {
         if (newBrand.length < 4) throw new Error("Short name")
         this.#brand = newBrand
     }
+
     get brand() {
         return this.#brand
     }
+
     set brand(newBrand) {
         this.#brand = newBrand
+    }
+    static concutCars(car1, car2) {
+        return car1.brand + " " + car2.brand
     }
 }
 
 const bmv = new Car('Bmv', 200);
 const kia = new Car('Kia', 220);
 
-// console.log(bmv)
-// console.log(kia)
+console.dir(bmv)
+console.log(kia)
 
-// bmv.setBrand("Mazda") // будет ожидаемая ошибка если длина меньше 4.
-
-// console.log(bmv.getBrand())
-// console.log(kia.getBrand())
-
-console.log(bmv.brand)
-
-bmv.brand = "ToYoTa"; // Если после brand стоит равно, значит set. Если не стоит равно, значит get.
-console.log(bmv.brand)
+console.log(Car.concutCars(bmv, kia))
